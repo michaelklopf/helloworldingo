@@ -59,3 +59,17 @@ package name
 # All files in a package must use the same name
 # executable commands must always use package main
 # reverse.go uses stringutil for example
+
+# write a test by creating a file with a name ending in _test.go
+# that contains functions named TestXXX with signature func (t *testing.T)
+
+# add to stringutil package
+touch reverse_test.go
+
+# run with
+go test
+
+# get remote packages with
+go get github.com/golang/example/hello
+
+# should be loaded into pkg folder
