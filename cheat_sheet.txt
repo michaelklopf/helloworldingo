@@ -48,3 +48,14 @@ go build
 go install
 
 # the output lands in the pkg folder next to src and bin
+# add in hello.go the stringutil package
+go install github.com/michaelklopf/hello
+# or
+go install
+
+# first statement in go file has to be
+package name
+
+# All files in a package must use the same name
+# executable commands must always use package main
+# reverse.go uses stringutil for example
