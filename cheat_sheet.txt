@@ -1,0 +1,50 @@
+# source for this https://golang.org/doc/code.html
+
+# add to .bash_profile
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=/Users/Michael/Dev/Projects/go
+export PATH=$PATH:$GOPATH/bin
+
+# the go folder is defined as the workspace by tutorial
+
+# keep sourcecode here, the so called base path
+mkdir -p $GOPATH/src/github.com/michaelklopf
+
+# create a new package directory
+mkdir $GOPATH/src/github.com/michaelklopf/hello
+
+# create hello.go in this folder
+
+# build and install program
+go install github.com/michaelklopf/hello
+
+# go tool finds the source code by looking for the github.com/michaelklopf/hello
+# package inside the workspace specified by GOPATH
+
+# can also omit the package path if you run go install from the package directory
+
+# run the program by typing its full path
+$GOPATH/bin/hello
+
+# when $GOPATH/bin ins in PATH, simply run
+hello
+
+# create a repository directly in the package directory
+cd $GOPATH/src/github.com/user/hello
+git init
+# etc.
+
+# to create a library you want to consume, add another package dir
+mkdir $GOPATH/src/github.com/michaelklopf/stringutil
+
+# create reverse.go there
+
+# build lib
+go build github.com/user/stringutil
+# or
+go build
+
+# this does not create an output file. For that do
+go install
+
+# the output lands in the pkg folder next to src and bin
